@@ -7,13 +7,13 @@ const USERNAME_KEY = 'username';
 
 function onLoginSubmit(event) {
   event.preventDefault();
-  const username = loginInput.value;
-  localStorage.setItem(USERNAME_KEY, username);
+  localStorage.setItem(USERNAME_KEY, loginInput.value);
   loginForm.classList.add(HIDDEN_CLASSNAME);
-  paintGreeting(username);
+  paintGreeting();
 }
 
-function paintGreeting(username) {
+function paintGreeting() {
+  const username = localStorage.getItem(USERNAME_KEY);
   greeting.innerText = `Hello ${username} :)`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
 }
@@ -22,7 +22,6 @@ const savedUsername = localStorage.getItem(USERNAME_KEY);
 if (savedUsername === null) {
   loginForm.addEventListener('submit', onLoginSubmit);
 } else {
-  console.log('two!');
   loginForm.classList.add(HIDDEN_CLASSNAME);
-  paintGreeting(savedUsername);
+  paintGreeting();
 }
