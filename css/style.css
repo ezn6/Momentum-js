@@ -13,3 +13,7 @@ img {
   z-index: -1;
   opacity: 50%;
 }
+
+#todo-form input {
+  width: 300px;
+}

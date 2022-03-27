@@ -4,10 +4,18 @@ const todoList = document.querySelector('#todo-list');
 
 function wirteTodoSubmit(event) {
   event.preventDefault();
-  const todo = document.createElement('li');
-  todoList.appendChild(todo);
-  todo.innerText = todoInput.value;
+  const li = document.createElement('li');
+  const span = document.createElement('span');
+  span.innerText = todoInput.value;
+  const button = document.createElement('button');
+  li.appendChild(span);
+  li.appendChild(button);
+  todoList.appendChild(li);
+  button.innerText = '❌';
   todoInput.value = '';
+  button.addEventListener('click', () => {
+    todoList.removeChild(li);
+  });
 }
 
 todoForm.addEventListener('submit', wirteTodoSubmit);
