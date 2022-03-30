@@ -21,11 +21,13 @@ function paintTodo(newTodo) {
   todoList.appendChild(li);
   button.innerText = '❌';
   button.addEventListener('click', () => {
-    todoList.removeChild(li);
-    console.log(li.id);
-    todos = todos.filter((i) => i.id !== li.id);
+    todoList.removeChild(li); //const li = event.target.parentElement;
+    //console.log(typeof li.id); //string
+    //console.log(typeof todos[0].id); //number
+
+    todos = todos.filter((i) => i.id != li.id);
     console.log(todos);
-    // saveTodo();
+    saveTodo();
   });
 }
 
